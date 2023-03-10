@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>{{ author['name'] }}</h2>
+  <p>{{ author['lifespan'] }}</p>
+  <hr>
+  <form>
+    <label for="term-search">Search:</label>
+    <input type="text" id="term-search" name="term-search">
+  </form>
+  <ul class="terms-list">
+    {% for term in terms %}
+      <li><a href="{{ url_for('term_index', author_id=author['id'], term=term.term) }}" class="term-link">{{ term.term }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <script>
+    // Get the input element and the list
+    const termInput = document.getElementById('term-search');
+    const termList = document.querySelector('.terms-list');
+
+    // Add a keyup event listener to the input element
+    termInput.addEventListener('keyup', debounce(() => {
+      // Get the search query
+      const searchQuery = termInput.value.toLowerCase();
+
+      // Filter the list items based on the search query
+      const filteredTerms = Array.from(termList.children).filter((term) => {
+        return term.textContent.toLowerCase().includes(searchQuery);
+      });
+
+      // Hide all list items
+      Array.from(termList.children).forEach((term) => {
+        term.style.display = 'none';
+      });
+
+      // Show the filtered list items
+      filteredTerms.forEach((term) => {
+        term.style.display = 'block';
+      });
+    }, 500));
+
+    function debounce(callback, wait) {
+      let timeout;
+      return function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(callback, wait);
+      }
+    }
+  </script>
+{% endblock %}

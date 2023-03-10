@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Authors</h2>
+  <hr>
+  <ul>
+    {% for author in authors %}
+      <li><a href="{{ url_for('author_index', author_id=author['id']) }}" class="term-link">{{ author['name'] }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

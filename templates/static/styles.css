@@ -1,0 +1,165 @@
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+header {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+main {
+  margin-top: 60px;
+}
+
+ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+h2 {
+  font-size: 42px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 30px;
+  color: #333;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+h4 {
+  font-size: 18px;
+  color: #333;
+  font-weight: 100;
+  margin-bottom: 30px;
+}
+
+a {
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Set the hover color of links to a contrasting color */
+a:hover {
+  color: #666;
+}
+
+a.term-link:hover {
+  text-decoration: underline;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  margin-left: 40px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  font-size: 18px;
+  font-weight: 100;
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #bbb;
+}
+
+/* Set the font size and color for the links in the .home-page class */
+ul.home-page a {
+  font-size: 42px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Set the underline on hover for the links in the .home-page class */
+ul.home-page a:hover {
+  text-decoration: underline;
+}
+
+.terms-wrapper {
+  column-count: auto;
+  column-gap: 20px;
+}
+
+.terms-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  column-count: 1; /* default to one column */
+}
+
+@media screen and (min-width: 600px) {
+  .terms-list {
+    column-count: 2; /* two columns for screens wider than 600px */
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .terms-list {
+    column-count: 3; /* three columns for screens wider than 900px */
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .terms-list {
+    column-count: 4; /* four columns for screens wider than 1200px */
+  }
+}
+
+.terms-list li {
+  margin-bottom: 5px;
+}
+
+/* Search bar styles */
+form {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input[type="text"] {
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

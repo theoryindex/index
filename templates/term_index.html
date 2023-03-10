@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ author_name }} - {{ term }}</h2>
+    <hr>
+    {% for book_title, book_data in books.items() %}
+        <h3>{{ book_title }}</h3>
+        <h4 class="publisher">{{ book_data['publisher'] }}</h4>
+        <ul>
+            {% for page in book_data['pages'] %}
+                <li style="padding-bottom: 10px;">{{ page }}</li>
+            {% endfor %}
+            {% for sub_index_term in index_term.sub_index_terms %}
+                <li style="padding-left: 35px;">{{ sub_index_term.term }}&nbsp;&nbsp;{{ sub_index_term.pages }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
